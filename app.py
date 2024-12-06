@@ -34,7 +34,7 @@ def product(product_id):
         if 'cart' not in session:
             session['cart'] = []
 
-        session['cart'].append({'id': product_id, 'name': product.name, 'price': product.price, 'quantity': int(request.form['quantity'])})
+        session['cart'].append({'id': product_id, 'name': product.name, 'price': product.price, 'type': product.spider_type, 'sex' : product.sex, 'image:': product.imageUrl, 'quantity': int(request.form['quantity'])})
         session.modified = True
 
     return render_template('product.html', product=product, cart_count=len(session.get('cart', [])))
